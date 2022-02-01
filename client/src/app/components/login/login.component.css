@@ -1,0 +1,78 @@
+.login-div {
+    height: 100%;
+} 
+.login-div .page {
+    position: absolute; 
+    bottom: 40px; 
+    left: 0; 
+    width: 35%; 
+    text-align: center;
+    font-size: 20px;
+}
+.logged {
+    width: 83%;
+    height: 22%;
+    border: 1px solid black;
+    margin: 30px auto;
+    padding: 10px 100px 0 20px;
+    background-color: rgb(214,220,229);
+}
+
+.logged button {
+    background: green;
+}
+
+.signup {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.inputs-div {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    margin: 0 50px;
+    gap: 10px;
+}
+
+.inputs-div input {
+    padding: 8px;
+}
+
+.buttons-div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttons-div button {
+    text-decoration: none;
+    border: none;
+    width: 30%;
+    padding: 8px;
+}
+
+.buttons-div a {
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.buttons-div a:hover{
+    text-decoration: none;
+}
+
+
+input[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+input:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.alert {
+    height: 40px;
+}

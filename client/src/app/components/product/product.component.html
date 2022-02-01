@@ -1,0 +1,13 @@
+<div class="product" *ngIf="!shareDataService.isAdminProduct">
+    <img  src={{url}}{{product.picture}} alt="product image"> 
+    <p>{{product.price}}</p>
+    <h6>{{product.name}}</h6>
+    <button mat-raised-button (click)="openDialog()">Add to cart</button>
+</div>
+
+<div class="product" *ngIf="shareDataService.isAdminProduct" (click)="onClickCurrentItem()">
+    <img  src={{url}}{{product.picture}} alt="product image"> 
+    <p>{{product.price}}</p>
+    <h6>{{product.name}}</h6>
+</div>
+

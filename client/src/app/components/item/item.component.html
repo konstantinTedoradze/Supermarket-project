@@ -1,0 +1,9 @@
+<div class="item">
+    <h3>Cart Item:</h3>
+    <h4 [innerHTML]="item.name | highlight: searchTerm"></h4>
+    <img  src={{url}}{{item.picture}} alt="item image"> 
+    <p>{{item.price}}</p>
+    <p>{{item.quantity}}</p>
+    <button (click)="onDeleteItem()" *ngIf="isShownButtonDelete">Delete</button>
+
+</div>

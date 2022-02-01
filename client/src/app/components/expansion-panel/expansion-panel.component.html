@@ -1,0 +1,38 @@
+  <div class="config-item" *ngIf="shareDataService.isShownClickedItem">
+   
+    <div class="flex-div-items">
+      <label>Product name: </label>
+      <input type="text"  [(ngModel)]="shareDataService.productInfo.name"> <br>
+    </div>
+    
+    <div class="flex-div-items">
+      <label>Product id:</label>
+      <input type="number" [(ngModel)]="shareDataService.productInfo.id" readonly> <br>
+    </div>
+
+    <div class="flex-div-items">
+      <label>Product price: </label>
+      <input type="number" [(ngModel)]="shareDataService.productInfo.price"><br>
+    </div>
+
+    <div class="flex-div-items">
+
+    <label>Picture:</label> 
+    <input type="file" id="img" style="display:none" 
+    (change)="onPictureSelected($event)" > 
+    <label for="img">{{shareDataService.productInfo.picture}}</label>
+    </div>
+
+    <div class="flex-div-items">
+     <label>Category:</label>
+     <!-- <input type="text" [(ngModel)]="shareDataService.productInfo.category"> <br> -->
+     <select [(ngModel)]="shareDataService.productInfo.category">
+       <option hidden>{{shareDataService.productInfo.category}}</option>
+       <option *ngFor="let categoryName of categoryArray" [value]="categoryName">{{categoryName}}</option>
+    </select>
+    </div>
+
+    <button class="save-button" type="submit" (click)="onUpdateProductsData()">SAVE</button>
+  </div>
+
+  

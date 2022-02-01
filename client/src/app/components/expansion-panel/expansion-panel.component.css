@@ -1,0 +1,60 @@
+.mat-form-field .mat-form-field {
+    margin-left: 8px;
+}
+
+.config-item input {
+    background-color:transparent;
+    border: 0px solid;
+    height:30px;
+    width:260px;
+}
+.config-item input:focus {
+    outline:none;
+}
+
+.flex-div-items {
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: start;
+    gap: 12px;
+}
+
+select {
+    background:transparent;
+    border: 0px solid;
+}
+
+
+.flex-div-items label {
+    width: 150px;
+    font-size: 16px;
+    text-align: start;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-weight: 800;
+}
+.flex-div-items input, select {
+    padding: 20px;
+    width: 60%;
+    padding-left: 20px;
+
+}
+.flex-div-items span {
+    background-color: yellow;
+    margin-left: 5px;
+}
+
+.save-button {
+    width: 100px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    background-color: rgb(91,155, 213) !important;
+    margin: 40px 40px 40px 0;
+}
+
+
+.save-button:hover {
+  background-color: #4CAF50 !important; /* Green */
+  color: white;
+}

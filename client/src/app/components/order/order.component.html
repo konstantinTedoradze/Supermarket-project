@@ -1,0 +1,100 @@
+<div class="searchInput">
+    <form>
+      <label>Search Product</label>
+      <input type="text" placeholder="Product name" (input)="updateSearch($event)" id="search-term"/>
+    </form>
+</div>
+
+<div class="order-steps">
+
+    <div class="first-step">
+        <div class="first-step-header">
+            <div class="header-title">   
+                <p>My Cart</p>
+                <a routerLink="/home" routerLinkActive="active">Back to shop</a>
+            </div>
+            <span class="line"></span>    
+        </div>
+
+        
+        <div class="items-class">
+            <div  *ngFor="let currentItem of shareService.Cartitems" 
+            (click)=[(showItem(currentItem))]  data-toggle="modal" data-target="#myModal">
+                <app-item [item]="currentItem" [searchTerm]="searchTerm"></app-item>
+            </div>
+
+        </div>
+        
+        <h2 class="totalSum">Total: {{shareService.sum}}$</h2>       
+        
+        </div>
+    
+    <div class="second-step">
+        <div class="second-step-header">
+            <div class="header-title">   
+                <p>Order</p>
+            </div>
+            <div class="arrow">
+                <span class="line"></span>
+                <span class="point"></span>
+            </div>
+        </div>
+            <div class="shipping-details">
+                <h3>Shipping Details:</h3>
+                <hr>
+            </div>
+            
+            <div class="second-step-input">
+                <label>City</label>
+                <input type="text" (dblclick)="onDoubleClickCity()" [value]="currentCity" placeholder="Please click twice">
+            </div>
+           
+            <div class="second-step-input">
+                <label>Street</label>
+                <input type="text" (dblclick)="onDoubleClickStreet()" [value]="currentStreet" placeholder="Please click twice">
+            </div>
+            
+            <div class="second-step-input-date">
+                <label>Shipping date</label>
+                <div>
+                    <mat-form-field appearance="fill" class="shipping-date">
+                        <input matInput (dateInput)="OnDateChange($event.value)" [matDatepicker]="picker"  [min]="minDate" [max]="maxDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            
+            
+            <div class="shipping-details-payment">
+                <h3>Payments:</h3>
+                <hr>
+            </div>
+
+            <div class="second-step-input">
+                <label>Credit Card</label>
+                <input type="number" name="card" [formControl]="card" placeholder="Enter card number">
+                <br>
+                <div *ngIf="card.invalid && (card.dirty || card.touched)" class="register-alert">
+                    <div *ngIf="card.errors?.required" style="color: red;">
+                        *Card is required.
+                    </div>
+                
+                    <div *ngIf="card.errors?.pattern" style="color: red;">
+                        *Card is not correct.
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="order-button-div">
+                <button class="order-button" (click)="onOrder()">
+                    Order
+                </button>
+            </div>
+            <span *ngIf="isError" class="span-class">*please fill all fields</span>                
+
+    </div>
+
+</div>

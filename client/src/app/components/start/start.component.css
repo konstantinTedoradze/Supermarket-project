@@ -1,0 +1,14 @@
+.start {
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 130px);
+    gap: 20px;
+}
+
+app-login, app-description,app-notification {
+    width: 31%;
+    background-color: rgb(91,155, 213);
+}

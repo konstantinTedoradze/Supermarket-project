@@ -1,0 +1,129 @@
+.searchInput {
+  background-color: rgb(91, 155, 213);
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.searchInput label {
+  padding-right: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+}
+
+.searchInput input {
+  padding: 5px;
+  width: 250px;
+}
+
+.search-button {
+  position: relative;
+  bottom: 14px;
+  right: 20px;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  min-height: 80%;
+  gap: 40px;
+}
+
+.swap-icon {
+  position: relative;
+  bottom: 10px;
+  right: 20px;
+}
+
+.items-class {
+  max-height: 70%;
+  overflow: auto;
+}
+
+.example-container {
+  width: 100%;
+  height: calc(100vh - 200px);
+  margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-top: none;
+}
+
+/* /deep/ md-select.example-sidenav-content{
+
+} */
+::ng-deep.mat-drawer-inner-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 20%;
+  justify-content: center;
+  margin-left: 1%;
+  margin-right: 1%;
+  z-index: 100;
+}
+
+.products-titles {
+  width: 80%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  background-color: rgb(91, 155, 213);
+}
+
+.products-current-title {
+  font-size: 20px;
+  padding-right: 25px;
+  border-right: 1px solid black;
+}
+
+.example-sidenav {
+  width: 30%;
+  background-color: rgb(91, 155, 213);
+}
+
+.mat-button {
+  display: inline-block;
+  height: 50px;
+  text-align: center;
+}
+
+.mat-button mat-icon {
+  font-size: 48px;
+}
+
+.mat-drawer {
+  text-align: center;
+}
+
+.totalSum {
+  display: flex;
+  justify-content: space-around;
+  width: 96%;
+  font-size: 26px;
+}
+
+.totalSum a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.active {
+  text-decoration: underline;
+  color: #1e60cc;
+}
+
+.example-sidenav-content {
+  position: sticky;
+  top: 0px;
+  right: 0;
+  display: flex;
+  width: 98%;
+  height: 20%;
+  justify-content: center;
+}

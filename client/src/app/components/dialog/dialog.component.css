@@ -1,0 +1,27 @@
+.cdk-overlay-pane {
+    margin: 10px auto;
+    text-align: center;
+    position: relative;
+    top: 10;
+}
+
+h2 {
+    text-align: center;
+}
+mat-dialog-content {
+    text-align: center;
+}
+
+mat-dialog-actions {
+    margin: 0 auto;
+}
+
+mat-dialog-content img {
+    width: 70%;
+    height: 80px;
+}
+
+mat-dialog-content button {
+    padding: 0 10px;
+    /* font-size: 12px; */
+}

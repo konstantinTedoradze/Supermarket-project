@@ -1,0 +1,17 @@
+<section class="notification">
+    <img [src]="url2" alt="second grocery pic">
+    <p>Available products in our store - {{shareData.products.length}}</p>
+    <p>Number of orders submitted in our store - {{shareData.orders}}</p>
+    <pre *ngIf="shareData.isShownNotification">
+        Notification:
+        <span *ngIf="shareData.isLastCartDate">You have open cart 
+        from date: [{{shareData.lastCartDate}}]</span>
+        <span *ngIf="!shareData.isLastCartDate">You have not
+        open cart yet</span>
+        <span *ngIf="shareData.isPurchaseLastDate">Your last
+        purchase was on 
+        [{{shareData.purchaseLastDate}}]</span>
+        <span *ngIf="!shareData.isPurchaseLastDate">Welcome to your first
+        purchase {{shareData.userName}}</span>
+    </pre>
+</section>

@@ -1,0 +1,14 @@
+mat-toolbar {
+    height: 100px;
+    background-color: rgb(91,155, 213) !important;
+}
+mat-toolbar img {
+    width: 80px;
+    border-radius: 50%;
+    border: 4px black dashed;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.mat-toolbar-single-row {
+    justify-content: space-between;
+}
+

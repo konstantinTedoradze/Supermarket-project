@@ -1,0 +1,88 @@
+<div class="searchInput">
+  <form (submit)="onSearchProducts($event)">
+    <label>Search Product</label>
+    <input type="text" [(ngModel)]="subText" name="subText" placeholder="Product name" />
+    <button type="submit" mat-button class="search-button">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+         pageview
+      </mat-icon>
+    </button>
+  </form>
+</div>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+   
+    <div class="items-class">
+      <h1>My Cart</h1>
+      <div  *ngFor="let currentItem of shoppingCarts.Cartitems">
+        <app-item [item]="currentItem"></app-item>
+      </div>
+    </div>
+      
+      <div class="totalSum">
+          <h2>Total: {{shareService.sum}}₪</h2>
+          <a routerLink="/order" routerLinkActive="active" (click)="onOrderClicked()">
+            Order
+          </a>        
+      </div>
+      
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon aria-hidden="false" class="swap-icon" aria-label="Example home icon"
+        >swap_horiz</mat-icon
+      >
+    </button>
+
+    <div *ngFor="let currentCategory of categories" class="products-titles">
+      <span
+        (click)="getCurrentCategoryProducts(currentCategory.categoryName,currentCategory)"
+        class="products-current-title" [ngClass]="{'active' :currentCategory.isClicked}"
+        >{{ currentCategory.categoryName }}</span>
+    </div>
+  </div>
+
+  <div class="products-container">
+    
+    <div *ngIf="!showSearchedProduct" class="products-container">
+      <div *ngFor="let currentProduct of currentProducts" >
+        <app-product
+          [product]="currentProduct" [getCartItems]="getCartItems"
+        ></app-product>
+      </div>
+    </div>
+   
+    <div  *ngIf="showSearchedProduct" class="products-container">
+      <div *ngFor="let product of fillteredCurrentProducts">
+        <app-product
+          [product]="product" [getCartItems]="getCartItems"
+        ></app-product>
+      </div>
+    </div>
+    
+  </div>
+</mat-drawer-container>
+
+
+<!-- <div class="main">
+  <div *ngFor = "let currentProduct of products| subTextPipe :subText" 
+  class="products-container" (click)=[(showCoupon(currentProduct))] data-toggle="modal" data-target="#myModal">
+      <app-product [product]="currentProduct"></app-product>
+  </div>
+</div> -->
+<!-- <form action="/" method="POST" enctype="multipart/form-data">
+    <input type="file" name="upload" multiple>
+    <input type="submit" value="Upload">
+</form> -->
+
+<!-- <div class="main">
+    <div *ngFor = "let currentProduct of currentProducts| subTextPipe :subText" 
+    class="products-container" (click)=[(showCoupon(currentProduct))] data-toggle="modal" data-target="#myModal">
+        <app-product [product]="currentProduct"></app-product>
+    </div>
+</div> -->
+
+
+

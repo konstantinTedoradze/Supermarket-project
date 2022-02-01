@@ -1,0 +1,50 @@
+<div class="login-div">
+
+  <div class="logged">
+    <button [disabled]="shopingDisabled" (click)="onClickStartShoping()">
+      Start Shoping/ Resume Shoping
+    </button>
+    <p>"available only for logged in users"</p>
+  </div>
+
+    
+    <form #loginForm="ngForm" [formGroup]="userloginForm" (submit)="onLoginClicked()" class="inputs-div">
+      <p>Registered?</p>
+
+      <!-- <input type="text" [(ngModel)]="email" placeholder="Email" /> -->
+      <input type="email" placeholder="Enter email" name="email" [formControl]="email">
+        
+      <div *ngIf="email.invalid && (email.dirty || email.touched)"
+    class="alert">
+
+        <div *ngIf="email.errors?.required">
+          Email is required.
+        </div>
+        <div *ngIf="email.errors?.minlength">
+          Email must be at least 8 characters long.
+        </div>
+
+      </div>
+      
+      <!-- <input type="password" [(ngModel)]="password" placeholder="Password" /> -->
+      <input type="password" placeholder="Password" name="password" [formControl]="password">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+        <div *ngIf="password.errors?.required">
+          password is required.
+        </div>
+        <div *ngIf="password.errors?.minlength">
+          password must be at least 8 characters long.
+        </div>
+      </div>
+
+      <div class="buttons-div">
+        <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+
+        <button class="signup" routerLink="/start/register" [disabled]="loginForm.form.valid" routerLinkActive="active" (click)="onRegisterClicked()"> 
+          Sign up
+        </button>
+      </div>
+
+    </form>
+    <p style="color: red">{{errorMessage}}</p>
+</div>

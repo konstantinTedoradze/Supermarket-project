@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onClickLogo()">
+      <img [src]="url" alt="logo">
+    </button>
+
+    <div *ngIf="isShownSearchBar">
+        <h5>Search Product</h5>
+        <input type="text" placeholder="product name">
+        <input type="button" value="search">
+    </div>
+
+    <div>
+        <span href="#" class="navbar-brand text-light">
+            Contact 
+            (Phone: +972050566578<br>Email: contact@myMarket.com)
+        </span>
+
+        <h3 *ngIf="!shareData.isShownName">Hello guest</h3>
+        <h3 *ngIf="shareData.isShownName">Hello {{shareData.userName}}</h3>   
+    </div>
+
+  </mat-toolbar>
+

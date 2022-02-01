@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100vh;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mark {
+    outline: 1px solid red;
+    font-weight: bold;
+    background-color: yellow;
+}

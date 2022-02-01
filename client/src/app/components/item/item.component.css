@@ -1,0 +1,18 @@
+.item {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(174, 222, 236);
+    margin: 20px auto;
+    gap: 10px;
+}
+
+.item img {
+    width: 130px;
+    height: 60px;
+}
+
+.item button {
+    padding: 4px 8px;
+}

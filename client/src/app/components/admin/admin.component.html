@@ -1,0 +1,138 @@
+<div class="searchInput">
+    <form (submit)="onSearchProducts($event)">
+      <label>Search Product</label>
+      <input type="text" [(ngModel)]="findName" name="findName" placeholder="Product name" />
+      <button type="submit" mat-button class="search-button">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+           pageview
+        </mat-icon>
+      </button>
+    </form>
+  </div>
+  
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+      <h1 (click)="onShowConfigItems()" *ngIf="!shareService.inItemsConfigDivShown">Add Item +</h1>
+      <h1 (click)="onShowConfigItems()" *ngIf="shareService.inItemsConfigDivShown">-</h1>
+      
+      <app-expansion-panel [categoryArray]="categoryNames"></app-expansion-panel>  
+    
+      <form #adminForm="ngForm" *ngIf="shareService.inItemsConfigDivShown" [formGroup]="adminAddItemForm" (submit)="onSaveClicked()" class="inputs-div">
+       
+        <div class="admin-form-item">
+          <div class="flex-div">
+            <label>Product Name: </label>
+            <input type="text"  name="name" [formControl]="name"> <br>
+          </div>
+            
+            <div  *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="alert">
+              <div *ngIf="name.errors?.['maxlength']" style="color: red">
+                *product name must be maximum at 9 characters long.
+              </div>
+              <div *ngIf="name.errors?.['minlength']" style="color: red">
+                *product name must be at least 5 characters long.
+              </div>
+              <div *ngIf="name.errors?.required" style="color: red">
+                 *product name is required.
+              </div>
+    
+        </div>
+
+      </div>
+      
+        <div class="admin-form-item">
+          <div class="flex-div">
+            
+        <label>Product Price: </label>
+        <input type="number"  name="price" [formControl]="price"><br>
+          </div>
+        <div *ngIf="price.invalid && (price.dirty || price.touched)"
+          class="alert">
+  
+          <div *ngIf="price.errors?.required" style="color: red">
+            *product price is required.
+          </div>
+    
+        </div>
+      </div>
+
+      <div class="admin-form-item">
+        <div class="flex-div">
+
+        <label>Picture: </label>
+        <input type="file" class="file-class" name="picture" [formControl]="picture" (change)="onFileSelected($event)"><br>
+        </div>
+       
+        <div *ngIf="picture.invalid && (picture.dirty || picture.touched)"
+          class="alert">
+  
+          <div *ngIf="picture.errors?.required" style="color: red">
+            *picture is required.
+          </div>
+    
+        </div>
+      </div>
+
+      <div class="admin-form-item">
+        <div class="flex-div">
+
+        <label>Category: </label>
+        <select   [formControl]="category">
+          <option *ngFor="let category of categoryNames" [value]="category">{{category}}</option>
+        </select>
+        </div>
+        <div *ngIf="category.invalid && (category.dirty || category.touched)"
+          class="alert">
+  
+          <div *ngIf="category.errors?.required" style="color: red">
+            *category is required.
+          </div>
+    
+        </div>
+      </div>
+        <button class="save-button" type="submit">ADD </button>
+
+        <h3 *ngIf="isShownErrorMessage" style="color: red">{{errorMessage}}</h3>
+
+      </form>
+
+        
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+  
+      <div *ngFor="let currentCategory of categories" class="products-titles">
+        <span
+          (click)="getCurrentCategoryProducts(currentCategory.categoryName)"
+          class="products-current-title"
+          >{{ currentCategory.categoryName }}</span>
+      </div>
+    </div>
+  
+    <div class="products-container">
+      
+      <div *ngIf="!showSearchedProduct" class="products-container">
+        <div *ngFor="let currentProduct of shareService.currentProducts" >
+          <app-product
+            [product]="currentProduct" [getCartItems]="shareService.getCartItems"
+          ></app-product>
+        </div>
+      </div>
+     
+      <div  *ngIf="showSearchedProduct" class="products-container">
+        <div *ngFor="let product of fillteredCurrentProducts">
+          <app-product
+            [product]="product" [getCartItems]="shareService.getCartItems"
+          ></app-product>
+        </div>
+      </div>
+      
+    </div>
+  </mat-drawer-container>
+  
+  
+
+  
+  
+  

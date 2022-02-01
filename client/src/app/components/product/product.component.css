@@ -1,0 +1,14 @@
+.product {
+    width: 130px;
+    height: 130px;
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.product img {
+    width: 130px;
+    height: 60px;
+}
+
+

@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>{{data.name}}</h2>
+
+<mat-dialog-content>
+    <img  src={{url}}{{data.picture}} alt="product image"> 
+</mat-dialog-content> <br>
+<mat-dialog-content>Price: {{data.price}}</mat-dialog-content><br>
+<mat-dialog-content>
+    <button (click)="onIncrement()">+</button> {{quantity}} <button (click)="onDecrement()">-</button>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button [mat-dialog-close]="true" (click)="addItem()">Add</button>
+</mat-dialog-actions>
